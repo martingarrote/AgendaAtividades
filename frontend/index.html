@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Agenda de Atividades</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+	<div class="conteudo">
+		<div class="operacoes-basicas">
+			<!-- 
+				Aqui ficarão operações "básicas". Essas são:
+				1. Mostragem de quantidade de atividades referente a situação baseado na cor
+				2. Botão para exibir filtros
+				3. Aba de inserção de texto para busca
+			-->
+		</div>
+		<div class="tabela-atividades">
+			<table class="content-table">
+				<thead>
+					<tr>
+						<th scope="col">Nome</th>
+						<th scope="col">Data</th>
+						<th scope="col">Situação</th>
+						<th scope="col">Observação</th>
+						<th scope="col">Matéria</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody id="corpoTabelaAtividades">
+				</tbody>
+			</table>
+		</div>
+		<br>
+		<div class="operacoes-avancadas">
+			<!--
+				Aqui ficarão botões para adicionar(refazer usando modal),
+				modificar(não foi feito) e 
+				remover atividades
+			-->
+			<button id="modalBtn" class="button adicionar">Adicionar Atividade</button>
+			<button class="button modificar" title="Não implementado">Modificar Atividade</button>
+			<button class="button remover" title="Não implementado">Remover Atividade</button>
+		</div>
+		<div id="atvModal" class="modal">
+			<div class="modal-content">
+				<div class="modal-header">
+					<span class="closeBtn">&times;</span>
+					<h2>Adicionar atividade</h2>
+					<hr id="teste">
+				</div>
+				<div class="modal-body">
+					<form onsubmit="return false;">
+						<div class="div-form">
+						  <label for="campoNome">Nome da atividade</label>
+						  <input id="campoNome" type="text" name="nomeatv" placeholder="Digite o nome da atividade" required>  
+						</div>
+						<div class="div-form">
+						  <label for="campoData">Data</label>
+						  <input id="campoData" type="date" required>
+						</div>
+						<div class="div-form">
+						  <label for="campoObservacao">Observação</label>
+						  <input id="campoObservacao" type="text" placeholder="Digite uma observação">
+						</div>
+						<div class="div-form">
+						  <label for="campoSituacao">Situação</label>
+						  <select id="campoSituacao">
+							<option value="pendente">Pendente</option>
+							<option value="atrasada">Atrasada</option>
+							<option value="concluida">Concluida</option>
+						  </select>
+						</div>
+						<div class="div-form">
+						  <label for="campoMateria">Matéria</label>
+						  <select id="campoMateria">
+							<option value="1">Biologia</option>
+							<option value="2">Desenvolvimento de Projeto II</option>
+							<option value="3">Educação Física</option>
+							<option value="4">Empreendedorismo</option>
+							<option value="5">Física</option>
+							<option value="6">Geografia</option>
+							<option value="7">História</option>
+							<option value="8">Língua Portuguesa</option>
+							<option value="9">Matemática</option>
+							<option value="10">Programação II</option>
+							<option value="11">Química</option>
+							<option value="12">Sociologia</option>
+							<option value="13">Vôlei</option>
+						  </select>
+						</div class="div-form">
+					  </form>
+				</div>
+				<div class="modal-footer">
+					<button class="button adcAtividade" id="btnAdicionarAtividade">Adicionar</button>
+					<button type="button" id="closeBtn2" class="button fechar">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="js/listaratividades.js"></script>
+	<script src="js/modal.js"></script>
+	<script src="js/adicionaratividade.js"></script>
+</body>
+</html>

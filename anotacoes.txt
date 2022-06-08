@@ -1,0 +1,13 @@
+O que tenho que fazer:
+
+1. Fazer mais filtros (por matéria, por data);
+1.2 Por data poderia ser baseado nos dias que faltam para a atividade ou ordenar pela data;
+2. Aprender como modificar algo no banco de dados para não colocar um Não tá pronto no botão referente a isso
+3. Descobrir como que eu posso fazer aparecerem as quantidades de atividades por situação
+O que eu gostaria de fazer (E que um dia talvez eu faça):
+
+1. A situação mudasse referente a data;
+2. Tivesse uma outra situação que seria urgente, que basicamente seria pra quando uma atividade tá próxima da entrega, que poderia até ficar um ponto de exclamação laranja (que seria a cor da situação) ao lado da linha da tabela, na parte de fora (não sei se daria de fazer, mas poderia ser dentro msm fds);
+3. Tivesse um calendário onde mostrasse cada atividade nele;
+4. Tivesse um sistema de login e que fosse possível compartilhar uma agenda com outras pessoas;
+5. Teria que mexer em várias coisas do backend para que fosse possível o item 4;

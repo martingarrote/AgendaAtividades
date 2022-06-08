@@ -2,8 +2,8 @@ from geral.config import *
 from modelo.atividade import Atividade
 from modelo.materia import Materia
 
-@app.route("/cadastrar/<string:classe>", methods = ['post'])
-def cadastrar(classe):
+@app.route("/adicionar/<string:classe>", methods = ['post'])
+def adicionar(classe):
     resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
     dados = request.get_json()
     try:

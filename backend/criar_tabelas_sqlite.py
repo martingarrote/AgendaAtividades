@@ -34,12 +34,3 @@ db.session.add(m11)
 db.session.add(m12)
 db.session.add(m13)
 db.session.commit()
-
-a1 = Atividade(nome = "Prova", data = "06/06/2022", situacao = "pendente", observacao = "Conteudo no whats", materia = m13)
-a2 = Atividade(nome = "Prova", data = "06/06/2022", situacao = "concluida", observacao = "Conteudo no whats", materia = m13)
-a3 = Atividade(nome = "Prova", data = "06/06/2022", situacao = "atrasada", observacao = "Conteudo no whats", materia = m13)
-
-db.session.add(a1)
-db.session.add(a2)
-db.session.add(a3)
-db.session.commit()

@@ -7,7 +7,7 @@ def run():
     db.session.add(m1)
     db.session.commit()
 
-    a1 = Atividade(nome = "Prova", data = "04/06/2022", situacao = "fazer", observacao = "precisa fazer", materia = m1)
+    a1 = Atividade(nome = "Prova", data = "04/06/2022", situacao = "pendente", observacao = "precisa fazer", materia = m1)
     db.session.add(a1)
     db.session.commit()
 

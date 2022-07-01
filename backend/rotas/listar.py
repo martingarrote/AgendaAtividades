@@ -13,4 +13,3 @@ def listar(classe):
     resposta = jsonify(lista_json)
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
-

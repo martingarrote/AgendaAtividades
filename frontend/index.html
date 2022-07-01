@@ -4,26 +4,96 @@
 	<title>Agenda de Atividades</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="estilo.css">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<script src="https://kit.fontawesome.com/1edb82e981.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="conteudo">
-		<div class="operacoes-basicas">
-			<!-- 
-				Aqui ficarão operações "básicas". Essas são:
-				1. Mostragem de quantidade de atividades referente a situação baseado na cor
-				2. Botão para exibir filtros
-				3. Aba de inserção de texto para busca
+		<div class="btns-sup">
+			<div class="bs-default">
+				<button class="button info">
+					Número de atividades:
+					<span class="sit-color total"></span>
+				</button>
+				<button id="exp-filtro" class="seta expandir"><i class="fa fa-angle-down fa-xs"></i></button>
+			</div>
+
+			<!-- Quando expandir menu de filtros, usar <i class="fa fa-angle-up"></i> 
+			no botão para reduzi-lo
+			<button id="recl-filtro" class="seta recolher"><i class="fa fa-angle-up"></i></button>
 			-->
+			<div class="bs-expandido">
+				<span id="recolherFiltro">&times;</span>
+				<div class="opts-filtro">
+					<!--
+						Fazer fila de filtros. Os itens dessa fila seriam adicionados à uma array, após isso, todos os
+						elementos seriam ocultados. Através de um for, a array seria percorrida e os itens que ela contem
+						serão exibidos.
+					-->
+					<div class="col a">
+						<p>
+							Contagem Atividades<br>
+							<span class="ball atrasada"></span> <span class="sit-color atrasada"></span> Atrasada<br>
+							<span class="ball pendente"></span> <span class="sit-color pendente"></span> Pendente<br>
+							<span class="ball concluida"></span> <span class="sit-color concluida"></span> Concluida<br>
+						</p>
+					</div>
+					<div class="col b">
+						<p>
+							Por Situação<br>
+							<input type="checkbox" id="atrasada" class="cbFiltro">Atrasadas<br>
+							<input type="checkbox" id="pendente" class="cbFiltro">Pendentes<br>
+							<input type="checkbox" id="concluida" class="cbFiltro">Concluidas<br>
+						</p>
+						
+					</div>
+					<div class="col c">
+						<p>Por Matéria</p>
+						<select id="filtroMateria">
+							<option value="0">Nenhuma</option>
+							<option value="1">Biologia</option>
+							<option value="2">Desenvolvimento de Projeto II</option>
+							<option value="3">Educação Física</option>
+							<option value="4">Empreendedorismo</option>
+							<option value="5">Física</option>
+							<option value="6">Geografia</option>
+							<option value="7">História</option>
+							<option value="8">Língua Portuguesa</option>
+							<option value="9">Matemática</option>
+							<option value="10">Programação II</option>
+							<option value="11">Química</option>
+							<option value="12">Sociologia</option>
+							<option value="13">Vôlei</option>
+						</select>
+					</div>
+					<div class="col d">
+						<p>Por Prazo</p>
+						<select id="filtroPrazo">
+							<option>Nenhum</option>
+							<option>30 dias</option>
+							<option>15 dias</option>
+							<option>7 dias</option>
+						</select>
+					</div>
+				</div>
+				<button id="FilterBtn" class="button filtrar">Filtrar</button>
+				<button class="button limpar">Limpar</button>
+				
+			</div>
 		</div>
+			
+		
+
 		<div class="tabela-atividades">
 			<table class="content-table">
 				<thead>
 					<tr>
 						<th scope="col">Nome</th>
 						<th scope="col">Data</th>
-						<th scope="col">Situação</th>
 						<th scope="col">Observação</th>
 						<th scope="col">Matéria</th>
+						<th scope="col">Situação</th>
 						<th scope="col"></th>
 					</tr>
 				</thead>
@@ -31,16 +101,10 @@
 				</tbody>
 			</table>
 		</div>
-		<br>
-		<div class="operacoes-avancadas">
-			<!--
-				Aqui ficarão botões para adicionar(refazer usando modal),
-				modificar(não foi feito) e 
-				remover atividades
-			-->
+		<div class="btns-inf">
 			<button id="modalBtn" class="button adicionar">Adicionar Atividade</button>
-			<button class="button modificar" title="Não implementado">Modificar Atividade</button>
-			<button class="button remover" title="Não implementado">Remover Atividade</button>
+			<button id="modifyBtn" class="button modificar">Modificar Atividade</button>
+			<button id="removeBtn" class="button remover">Remover Atividade</button>
 		</div>
 		<div id="atvModal" class="modal">
 			<div class="modal-content">
@@ -64,14 +128,6 @@
 						  <input id="campoObservacao" type="text" placeholder="Digite uma observação" value="Nenhuma">
 						</div>
 						<div class="div-form">
-						  <label for="campoSituacao">Situação</label>
-						  <select id="campoSituacao">
-							<option value="pendente">Pendente</option>
-							<option value="atrasada">Atrasada</option>
-							<option value="concluida">Concluida</option>
-						  </select>
-						</div>
-						<div class="div-form">
 						  <label for="campoMateria">Matéria</label>
 						  <select id="campoMateria">
 							<option value="1">Biologia</option>
@@ -88,7 +144,15 @@
 							<option value="12">Sociologia</option>
 							<option value="13">Vôlei</option>
 						  </select>
-						</div class="div-form">
+						</div>
+						<div class="div-form">
+						  <label for="campoSituacao">Situação</label>
+						  <select id="campoSituacao">
+							<option value="pendente">Pendente</option>
+							<option value="atrasada">Atrasada</option>
+							<option value="concluida">Concluida</option>
+						  </select>
+						</div>
 					  </form>
 				</div>
 				<div class="modal-footer">
@@ -98,11 +162,15 @@
 			</div>
 		</div>
 	</div>
-
-	
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script src="js/listaratividades.js"></script>
+	<script src="js/contagem.js"></script>	
 	<script src="js/modal.js"></script>
 	<script src="js/adicionaratividade.js"></script>
+	<script src="js/removeratividade.js"></script>
+	<!-- <script src="js/modificaratividade.js"></script> -->
+	<script src="js/menufiltro.js"></script>
+	<script src="js/filtros.js"></script>
+	
 </body>
 </html>

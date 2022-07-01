@@ -26,11 +26,11 @@ $(function() {
                 $("#campoMateria").val("");
             }
             else {
-                alert("Erro na inclusão: " + retorno.resultado + ":" + retorno.detalhes);
+               alert(`Erro na inclusão: ${retorno.resultado} ${retorno.detalhes}`)
             }
         }
         function erroAoAdicionar(retorno) {
-            alert("Erro na inclusão: " + retorno.resultado + ":" + retorno.detalhes);
+            alert(`Erro na inclusão: ${retorno.resultado} ${retorno.detalhes}`);
         }
     })
 })

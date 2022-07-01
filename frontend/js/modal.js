@@ -1,8 +1,8 @@
 var modal = document.getElementById('atvModal');
 var modalBtn = document.getElementById('modalBtn');
 var closeBtn = document.getElementsByClassName('closeBtn')[0];
-var closeBtn2 = document.getElementById('closeBtn2')
-var adcBtn = document.getElementById('btnAdicionarAtividade')
+var closeBtn2 = document.getElementById('closeBtn2');
+var adcBtn = document.getElementById('btnAdicionarAtividade');
 
 modalBtn.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);
@@ -24,7 +24,7 @@ function atvAdd() {
 }
 
 function clickOutside(e) {
-    if(e.target == modal) {
+    if (e.target == modal) {
         modal.style.display = "none";  
     }
 }

@@ -1,4 +1,4 @@
-$(function () { // quando o documento estiver pronto/carregado
+$(function() { // quando o documento estiver pronto/carregado
 
     // chamada ao backend
     $.ajax({
@@ -15,13 +15,13 @@ $(function () { // quando o documento estiver pronto/carregado
     function listar(atividades) {
         // percorrer a lista de pessoas retornadas; 
         for (var i in atividades) { //i vale a posição no vetor
-            lin = '<tr id = "linha_' + atividades[i].id + '">' + // elabora linha com os dados da pessoa
+            lin = '<tr id = "linha_' + atividades[i].id + '" class="sit ' + atividades[i].situacao + '">' + // elabora linha com os dados da pessoa
                 '<td>' + atividades[i].nome + '</td>' +
                 '<td>' + atividades[i].data + '</td>' +
-                '<td><p class="situacao ' + atividades[i].situacao + '">'+ atividades[i].situacao + '</p></td>' +
                 '<td>' + atividades[i].observacao + '</td>' +
                 '<td>' + atividades[i].materia.nome + '</td>' +
-                '<td><input type="checkbox" class="checkbox" id ="cb_' + atividades[i].id + '"></input>' +
+                '<td><p class="situacao ' + atividades[i].situacao + '">'+ atividades[i].situacao + '</p></td>' +
+                '<td><input type="checkbox" class="checkbox" id ="cb_' + atividades[i].id + '"></i><i id="el_'+ atividades[i].id +'" class="fa-solid fa-pen-to-square"></i>' +
                 '</tr>';
             // adiciona a linha no corpo da tabela
             $('#corpoTabelaAtividades').append(lin);

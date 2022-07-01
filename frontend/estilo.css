@@ -10,6 +10,7 @@ body {
 
 .tabela-atividades .content-table {
     margin: auto;
+    width: 35%;
     cursor: default;
 }
 
@@ -58,6 +59,7 @@ body {
 .situacao.atrasada {
     background-color: #FF0000;
     color: black;
+    transition-duration: 0.4s;
 }
 
 .situacao.pendente {
@@ -70,29 +72,74 @@ body {
     color: black;
 }
 
-.operacoes-avancadas {
+.btns-sup {
     margin: auto;
-    text-align: center;
+    width: 35%;
+    margin-bottom: 1%;
+}
+
+.bs-default {
+    display: block;
+}
+
+.bs-expandido {
+    display: none;
+    background-color: #282828;
+    border-radius: 5px;
+    padding: 0em 1em 0.5em 1em;
+    overflow: hidden;
+}
+
+.sit-color.total {
+    color: #7eadf7;
+}
+
+.btns-inf {
+    margin: auto;
+    width: 35%;
+    margin-top: 1%;
 }
 
 .button {
     background-color: #353535;
     color: #ffffff;
-    margin-top: 0.5%;
     padding: 1em;
     border-radius: 5px;
     border: none;
 }
 
-.button.modificar {
-    margin-left: 3.5em;
-    margin-right: 3.5em;
+.button.info {
+    background-color: #353535;
+    color: #ffffff;
+    padding: 1em;
+    border-radius: 5px;
+    border: none;
+    position: flex;
 }
 
-.button:hover {
+.button.adicionar, 
+.button.modificar {
+    float: left;
+}
+
+.button.adicionar {
+    margin-right: 15px;
+}
+
+.button.remover {
+    float: right;
+}
+
+.button.modificar {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.button:hover:not(.button.info, .button.modificar) {
     background-color: gray;
     color: black;
     cursor: pointer;
+    transition-duration: 0.4s;
 }
 
 .modal {
@@ -173,7 +220,7 @@ hr {
 #campoObservacao, 
 #campoSituacao, 
 #campoMateria {
-    width: 260px;
+    width: 80%;
     outline: none;
     color: white;
     border: none;
@@ -203,4 +250,141 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 #btnAdicionarAtividade {
     margin-right: 10px;
+}
+
+#exbOp {
+    display: inline;
+}
+
+#btnRemover {
+    display: none;
+}
+
+input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+    background-color: red;
+    border-radius: 50px;
+}
+
+.cb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.seta {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 20px;
+}
+
+.seta:hover {
+    cursor: pointer;
+}
+
+.seta.expandir {
+    background-color: #353535;
+    float: right;
+    border-radius: 100%;
+}
+
+.seta.recolher:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 100%;
+    transition-duration: 0.4s;
+}
+
+.seta.expandir:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition-duration: 0.4s;
+}
+
+.fa.fa-angle-down {
+    font-weight: 1px;
+}
+
+.ball {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #bbb;
+}
+
+.ball.atrasada {
+    background-color: #FF0000;
+}
+
+.ball.pendente {
+    background-color: #FFD800;
+}
+
+.ball.concluida {
+    background-color: #4CFF00;
+}
+
+.opts-filtro {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.col {
+    width: 25%;
+    color: white;
+}
+
+.col.a {
+}
+
+.col.b {
+}
+
+.col.c {
+    visibility: hidden;
+}
+
+.col.d {
+    visibility: hidden;
+}
+
+.button.filtrar {
+    float: right;
+}
+
+.button.limpar {
+    float: right;
+    margin-right: 5px;
+}
+
+#recolherFiltro {
+    color: white;
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#recolherFiltro:hover {
+    color: #4e4e4e;
+    transition-duration: 0.1s;
+}
+
+.fa-solid.fa-pen-to-square{
+    visibility: hidden;
+}
+
+.fa-solid.fa-pen-to-square:hover {
+    opacity: 0.5;
+    transition-duration: 0.2s;
 }

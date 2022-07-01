@@ -11,3 +11,23 @@ O que eu gostaria de fazer (E que um dia talvez eu faça):
 3. Tivesse um calendário onde mostrasse cada atividade nele;
 4. Tivesse um sistema de login e que fosse possível compartilhar uma agenda com outras pessoas;
 5. Teria que mexer em várias coisas do backend para que fosse possível o item 4;
+
+
+------------
+
+Arrumar CSS:
+
+1. Ajeitar todas as medidas, usando medidas mais adequadas e de forma correta;
+2. Ajustar posicionamento e tamanho de alguns elementos;
+3. Ajustar botões;
+4. Testar responsividade;
+5. 
+
+------------
+
+Algumas ideias:
+
+1. Após passar de certa quantidade de atividades "acionar" sistema de páginas, para facilitar a navegação;
+2. Ter botão de tema escuro ou claro;
+3. Antes de realizar a remoção das atividades perguntar se realmente deseja fazer isso informando quais atividades serão deletadas;
+4. Botão para selecionar TODAS as atividades;

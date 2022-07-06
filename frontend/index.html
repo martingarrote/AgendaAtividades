@@ -42,9 +42,9 @@
 					<div class="col b">
 						<p>
 							Por Situação<br>
-							<input type="checkbox" id="atrasada" class="cbFiltro">Atrasadas<br>
-							<input type="checkbox" id="pendente" class="cbFiltro">Pendentes<br>
-							<input type="checkbox" id="concluida" class="cbFiltro">Concluidas<br>
+							<button id="filtroAtrasadas" class="button adcFiltro"><i id="filtroAtrasadas" class="fa-solid fa-plus"></i></button>&nbsp;Atrasadas<br>
+							<button id="filtroPendentes" class="button adcFiltro"><i id="filtroPendentes" class="fa-solid fa-plus"></i></button>&nbsp;Pendentes<br>
+							<button id="filtroConcluidas" class="button adcFiltro"><i id="filtroConcluidas" class="fa-solid fa-plus"></i></button>&nbsp;Concluidas<br>
 						</p>
 						
 					</div>
@@ -77,6 +77,7 @@
 						</select>
 					</div>
 				</div>
+				<div id="listaFiltros"></div>
 				<button id="FilterBtn" class="button filtrar">Filtrar</button>
 				<button class="button limpar">Limpar</button>
 				
@@ -170,7 +171,7 @@
 	<script src="js/removeratividade.js"></script>
 	<!-- <script src="js/modificaratividade.js"></script> -->
 	<script src="js/menufiltro.js"></script>
-	<script src="js/filtros.js"></script>
-	
+	<!-- <script src="js/filtros.js"></script> -->
+	<script src="js/novofiltro.js"></script>
 </body>
 </html>

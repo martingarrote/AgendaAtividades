@@ -1,5 +1,6 @@
 from geral.config import *
 from modelo.materia import Materia
+from datetime import date, datetime
 
 class Atividade(db.Model):
 	id = db.Column(db.Integer, primary_key = True)

@@ -19,7 +19,7 @@ function filtrarSituacao() {
         let checkbox = document.getElementById(idcb)
 
         if (checkbox.checked) {
-            aparecer.push('.sit.' + checkbox.id)
+            aparecer.push(`.sit.${checkbox.id}`)
         }
     }
 

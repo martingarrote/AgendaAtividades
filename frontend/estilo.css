@@ -117,6 +117,17 @@ body {
     position: flex;
 }
 
+.button.adcFiltro {
+    background-color: #4e4e4e;
+    border-radius: 5px;
+    padding: 2px 4px;
+    cursor: pointer;
+}
+
+.button.adcFiltro:hover {
+    background-color: #737373;
+}
+
 .button.adicionar, 
 .button.modificar {
     float: left;
@@ -135,7 +146,7 @@ body {
     opacity: 0.5;
 }
 
-.button:hover:not(.button.info, .button.modificar) {
+.button:hover:not(.button.info, .button.modificar, .button.adcFiltro) {
     background-color: gray;
     color: black;
     cursor: pointer;
@@ -345,11 +356,11 @@ input[type=checkbox] {
     color: white;
 }
 
-.col.a {
+/* .col.a {
 }
 
 .col.b {
-}
+} */
 
 .col.c {
     visibility: hidden;
@@ -387,4 +398,24 @@ input[type=checkbox] {
 .fa-solid.fa-pen-to-square:hover {
     opacity: 0.5;
     transition-duration: 0.2s;
+}
+
+.chaveFiltro {
+    text-transform: capitalize;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    padding: 0.2em;
+    margin: 2.5px;
+}
+
+.btnChaveFiltro {
+    background: none;
+    border: none;
+    color: white;
+    border-radius: 1em;
+}
+
+.btnChaveFiltro:hover {
+    background-color: #46a049;
 }

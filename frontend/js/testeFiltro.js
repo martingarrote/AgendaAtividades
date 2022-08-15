@@ -41,6 +41,8 @@ var filtros = {
     FiltarMateria: 0
 };
 
+var selecionados = 0
+
 // Identificação e definição de função do botão de limpar
 
 let btnLimpar = document.getElementsByClassName('button limpar')[0];
@@ -59,6 +61,9 @@ function limpar() {
     $('#filtroAtrasadas2').css('visibility', 'visible');
     $('#filtroPendentes2').css('visibility', 'visible');
     $('#filtroConcluidas2').css('visibility', 'visible');
+    $('#corpoTabelaAtividadesFiltradas').empty();
+    $('#corpoTabelaAtividades').show();
+    selecionados = 0
 }
 
 let adcAtrasada = document.getElementById('filtroAtrasadas1');
@@ -80,10 +85,13 @@ function incluirChavesSituacao() {
         $('#listaFiltros').append(`<span id="${sitCut}" class="chaveFiltro">${vsSing}&nbsp;<button id="${sitCut}X" class="btnChaveFiltro"><i id="${sitCut}I" class="fa-solid fa-xmark"></i></button></span>`);
         $(`#${etidDif}1`).css('visibility', 'hidden');
         $(`#${etidDif}2`).css('visibility', 'hidden');
+        selecionados += 1
     }
+    
 }
 
 $(document).on('click', '.btnChaveFiltro', function() {
+    // remover chave situacao
     var sitExt = {'atr': 'atrasada', 'pen': 'pendente', 'con': 'concluida'};
     var etid = event.target.id;
     var sitCut = etid.substring(0, etid.length-1);
@@ -96,31 +104,55 @@ $(document).on('click', '.btnChaveFiltro', function() {
         $(`#${sitCut}`).remove();
         $(`#${idFil}1`).css('visibility', 'visible');
         $(`#${idFil}2`).css('visibility', 'visible');
+        selecionados -= 1
     }
 })
 
 $(document).on('click', '#FilterBtn', function() {
-    var info = JSON.stringify({
-        Atrasadas: filtros["Atrasadas"],
-        Pendentes: filtros["Pendentes"],
-        Concluidas: filtros["Concluidas"],
-        OrdenarData: filtros["OrdenarData"],
-        FiltrarMateria: filtros["OrdenarData"]
-    });
 
-    console.log(filtros)
-    console.log(info)
-    $.ajax({
-        url: 'http://localhost:5000/filtrar',
-        type: 'POST',
-        dataType: 'json',
-        contentType: 'application/json',
-        data: info,
-        success: Sucesso,
-        error: function(){console.log('Erro no POST.')}
-    })
+    if (selecionados > 0) {
+        var info = JSON.stringify({
+            Atrasadas: filtros["Atrasadas"],
+            Pendentes: filtros["Pendentes"],
+            Concluidas: filtros["Concluidas"],
+            OrdenarData: filtros["OrdenarData"],
+            FiltrarMateria: filtros["OrdenarData"]
+        });
 
-    function Sucesso(resposta) {
-        console.log(resposta)
+        $.ajax({
+            url: 'http://localhost:5000/filtrar',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: info,
+            success: Sucesso,
+            error: function(){console.log('Erro no POST!')}
+        })
+
+        function Sucesso(atividades) {
+            if (atividades.resultado == "ok") {
+                for (var i in atividades.dados) { //i vale a posição no vetor
+                    lin = 
+                    `<tr id="linha_${atividades.dados[i].id}" class="sit ${atividades.dados[i].situacao}">
+                        <td>${atividades.dados[i].nome}</td>
+                        <td>${atividades.dados[i].data}</td>
+                        <td>${atividades.dados[i].observacao}</td>
+                        <td>${atividades.dados[i].materia.nome}</td>
+                        <td><p class="situacao ${atividades.dados[i].situacao}"> ${atividades.dados[i].situacao}</p></td>
+                        <td><input type="checkbox" class="checkbox" id="cb_${atividades.dados[i].id}"><i id="el_${atividades.dados[i].id}" class="fa-solid fa-pen-to-square"></i>
+                    </tr>`;
+                    // adiciona a linha no corpo da tabela
+                    $('#corpoTabelaAtividades').hide()
+                    $('#corpoTabelaAtividadesFiltradas').append(lin);
+                }
+            }
+            else {
+                $('#corpoTabelaAtividades').hide()
+            }
+        }
+    }
+    else {
+        $('#corpoTabelaAtividadesFiltradas').empty();
+        $('#corpoTabelaAtividades').show();
     }
 })
